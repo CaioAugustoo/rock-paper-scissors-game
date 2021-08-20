@@ -1,62 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap"
-      rel="stylesheet"
-    />
-    <link href="/assets/styles/index.css" rel="stylesheet" />
-    <title>Game</title>
-  </head>
-  <body>
-    <main>
-      <div class="container">
-        <section class="score-wrapper">
-          <div class="logo">
-            <img src="assets/svg/logo.svg" alt="Rock Paper Scissors" />
-          </div>
-          <div class="score">
-            <p>Score</p>
-            <h1>0</h1>
-          </div>
-        </section>
 
-        <section class="controls">
-          <div class="controls-wrapper">
-            <div class="rock" data-control="rock" title="Rock">
-              <img
-                src="assets/svg/rock.svg"
-                data-control="rock"
-                width="150"
-                alt="Rock"
-              />
-            </div>
-            <div class="scissors" data-control="scissors" title="Scissors">
-              <img
-                src="assets/svg/scissors.svg"
-                data-control="scissors"
-                width="150"
-                alt="Scissors"
-              />
-            </div>
-            <div class="paper" data-control="paper" title="Paper">
-              <img
-                src="assets/svg/paper.svg"
-                data-control="paper"
-                width="150"
-                alt="Paper"
-              />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="/assets/styles/index.css" rel="stylesheet" />
+  <title>Game</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <section class="score-wrapper">
+        <div class="logo">
+          <img src="assets/svg/logo.svg" alt="Rock Paper Scissors" />
+        </div>
+        <div class="score">
+          <p>Score</p>
+          <h1>0</h1>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="controls-wrapper">
+          <div class="rock" data-control="rock" title="Rock">
+            <img src="assets/svg/rock.svg" data-control="rock" width="150" alt="Rock" />
+          </div>
+          <div class="scissors" data-control="scissors" title="Scissors">
+            <img src="assets/svg/scissors.svg" data-control="scissors" width="150" alt="Scissors" />
+          </div>
+          <div class="paper" data-control="paper" title="Paper">
+            <img src="assets/svg/paper.svg" data-control="paper" width="150" alt="Paper" />
+          </div>
+        </div>
+      </section>
+
+      <section class="result">
+        <div class="result-wrapper">
+          <div class="picked you">
+            <p>YOU PICKED</p>
+
+            <div>
+              <img src="assets/svg/paper.svg" width="250" />
             </div>
           </div>
-        </section>
 
-    </main>
+          <div class="restart">
+            <h1>YOU WON</h1>
+            <button>PLAY AGAIN</button>
+          </div>
 
-    <script src="out/index.js" type="module"></script>
-  </body>
+          <div class="picked machine">
+            <p>MACHINE PICKED</p>
+
+            <div>
+              <img src="assets/svg/scissors.svg" width="250" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal-rules">
+        <div class="modal-wrapper">
+          <div class="modal-title">
+            <h1>RULES</h1>
+            <button>
+              <img src="assets/svg/icon-close.svg" title="Close modal" alt="Close modal" />
+            </button>
+          </div>
+
+          <img src="assets/svg/image-rules.svg" alt="Rules of the game" />
+        </div>
+      </div>
+
+      <button class="open-modal">Rules</button>
+      
+
+  </main>
+
+  <script src="out/index.js" type="module"></script>
+</body>
+
 </html>

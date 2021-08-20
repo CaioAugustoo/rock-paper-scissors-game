@@ -11,12 +11,16 @@ html {
 body {
   height: 100vh;
   background: linear-gradient(0deg, #182547 0%, #182243 0.01%, #1f3656 100%);
-  font-family: "Roboto", sans-serif;
   color: white;
 }
 
+body,
+button {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
 .container {
-  max-width: 130rem;
+  max-width: 100rem;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -63,7 +67,126 @@ body {
   justify-content: center;
   margin-top: 8rem;
 }
-
+/* 
 .scissors {
   transform: translateY(20rem);
+} */
+
+.result {
+  display: none;
+}
+
+.result-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 5rem auto 0 auto;
+  gap: 4rem;
+}
+
+.restart {
+  text-align: center;
+}
+
+.restart h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+.picked p {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.restart button {
+  border-radius: 1rem;
+  padding: 1.5rem 4rem;
+  border: none;
+  background: white;
+
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+
+  margin-top: 2rem;
+  width: 100%;
+
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.restart button:hover {
+  transform: translateY(-0.1rem);
+}
+
+.modal-rules {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  max-width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-rules.active {
+  display: flex;
+}
+
+.modal-wrapper {
+  background: white;
+  padding: 3rem 5rem;
+  border-radius: 1rem;
+
+  margin: 0 2rem;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.modal-title h1 {
+  font-size: 3rem;
+  color: #182547;
+}
+
+.modal-wrapper button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.open-modal {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  border-radius: 1rem;
+  padding: 1.5rem 4rem;
+  border: none;
+  background: transparent;
+
+  font-size: 1.4rem;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all 0.2s;
+
+  color: white;
+
+  border: 2px solid white;
+}
+
+.open-modal:hover {
+  transform: translateY(-0.1rem);
 }
