@@ -1,13 +1,18 @@
+import { createdSelectedView } from "./createdSelectedView.js";
 import { generateRandom } from "./generateRandom.js";
 
 class Game {
-  private readonly _controls: NodeListOf<Element>;
+  private readonly _controlsSelector: HTMLDivElement;
+  private readonly _resultSelector: HTMLDivElement;
+  private readonly _scoreSelector: HTMLHeadingElement;
 
   private _selected: string = "";
   private _score: number = 0;
 
-  constructor(controls: string) {
-    this._controls = document.querySelectorAll(controls) as NodeListOf<Element>;
+  constructor(controls: string, result: string, score: string) {
+    this._controlsSelector = document.querySelector(controls) as HTMLDivElement;
+    this._resultSelector = document.querySelector(result) as HTMLDivElement;
+    this._scoreSelector = document.querySelector(score) as HTMLHeadingElement;
 
     this.bindEvents();
     this.events();
@@ -25,27 +30,49 @@ class Game {
     this.result();
   }
 
-  private autoSelect() {
+  private autoSelect(): string {
     const machineOptions = ["rock", "paper", "scissors"];
 
     const randomSelect = generateRandom(machineOptions);
     const whatMachinePicked = machineOptions[randomSelect];
+
+    createdSelectedView(whatMachinePicked, "machine");
 
     console.log(`Machine picked ${whatMachinePicked}`);
 
     return whatMachinePicked;
   }
 
+  showResult(winner: string): void {
+    const whatYouPicked = this._resultSelector.querySelector(
+      ".restart h1"
+    ) as HTMLHeadingElement;
+
+    createdSelectedView(this._selected, "you");
+
+    this._resultSelector.style.display = "block";
+    this._controlsSelector.style.display = "none";
+
+    if (winner === "No One") whatYouPicked.innerText = `Draw`;
+    else whatYouPicked.innerText = `${winner} won`;
+  }
+
+  updateScore() {
+    this._score += 1;
+    this._scoreSelector.innerText = String(this._score);
+  }
+
   private result(): void {
     const whatMachinePicked = this.autoSelect();
     const winner = this.whoWon(whatMachinePicked);
+
+    if (winner === "You") this.updateScore();
+    this.showResult(String(winner));
 
     console.log("Result:", winner);
   }
 
   private whoWon(machineChoose: string) {
-    // Todo: validation other options
-
     if (machineChoose === "rock" && this._selected === "paper") {
       return "You";
     }
@@ -62,19 +89,25 @@ class Game {
       return "Machine";
     }
 
+    if (machineChoose === "rock" && this._selected === "scissors") {
+      return "Machine";
+    }
+
     if (machineChoose === "paper" && this._selected === "rock") {
       return "Machine";
     }
 
     if (machineChoose === this._selected) {
-      return "Draw";
+      return "No One";
     }
   }
 
-  restart() {
-    this._score = 0;
+  restart(): void {
     this._selected = "";
     console.clear();
+
+    this._resultSelector.style.display = "none";
+    this._controlsSelector.style.display = "flex";
   }
 
   bindEvents(): void {
@@ -83,10 +116,15 @@ class Game {
   }
 
   events(): void {
-    this._controls.forEach(control =>
+    const restartButton = this._resultSelector.querySelector(".restart button");
+    const controls = this._controlsSelector.querySelectorAll("div");
+
+    controls.forEach(control =>
       control.addEventListener("click", event => this.select(event))
     );
+
+    restartButton?.addEventListener("click", this.restart);
   }
 }
 
-new Game(".controls-wrapper div");
+new Game(".controls-wrapper", ".result", ".score h1");
