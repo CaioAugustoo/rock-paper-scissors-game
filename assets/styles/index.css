@@ -47,3 +47,8 @@ body {
 .score h1 {
   font-size: 4rem;
 }
+
+.disabled {
+  opacity: 0.1;
+  cursor: not-allowed;
+}
