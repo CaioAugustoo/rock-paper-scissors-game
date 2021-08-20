@@ -12,7 +12,7 @@ class Game {
             return;
         const target = event === null || event === void 0 ? void 0 : event.currentTarget;
         const selected = target.dataset.control;
-        this._selected = `${selected}`;
+        this._selected = selected;
         console.log(`You picked ${this._selected}`);
         this.result();
     }

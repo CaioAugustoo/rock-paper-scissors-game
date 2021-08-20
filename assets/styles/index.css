@@ -52,3 +52,18 @@ body {
   opacity: 0.1;
   cursor: not-allowed;
 }
+
+.controls div {
+  cursor: pointer;
+}
+
+.controls-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8rem;
+}
+
+.scissors {
+  transform: translateY(20rem);
+}
