@@ -28,14 +28,14 @@ export class Game {
         return whatMachinePicked;
     }
     showResult(winner) {
-        const whatYouPicked = this._resultSelector.querySelector(".restart h1");
+        const result = this._resultSelector.querySelector(".restart h1");
         createdSelectedView(this._selected, "you");
         this._resultSelector.style.display = "block";
         this._controlsSelector.style.display = "none";
         if (winner === "No One")
-            whatYouPicked.innerText = `Draw`;
+            result.innerText = `Draw`;
         else
-            whatYouPicked.innerText = `${winner} won`;
+            result.innerText = `${winner} won`;
     }
     updateScore() {
         this._score += 1;

@@ -44,7 +44,7 @@ export class Game {
   }
 
   showResult(winner: string): void {
-    const whatYouPicked = this._resultSelector.querySelector(
+    const result = this._resultSelector.querySelector(
       ".restart h1"
     ) as HTMLHeadingElement;
 
@@ -53,11 +53,11 @@ export class Game {
     this._resultSelector.style.display = "block";
     this._controlsSelector.style.display = "none";
 
-    if (winner === "No One") whatYouPicked.innerText = `Draw`;
-    else whatYouPicked.innerText = `${winner} won`;
+    if (winner === "No One") result.innerText = `Draw`;
+    else result.innerText = `${winner} won`;
   }
 
-  updateScore() {
+  private updateScore(): void {
     this._score += 1;
     this._scoreSelector.innerText = String(this._score);
   }
