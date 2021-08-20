@@ -14,7 +14,7 @@ class Game {
         const selected = target.dataset.control;
         this._selected = `${selected}`;
         console.log(`You picked ${this._selected}`);
-        this.start();
+        this.result();
     }
     autoSelect() {
         const machineOptions = ["rock", "paper", "scissors"];
@@ -23,10 +23,10 @@ class Game {
         console.log(`Machine picked ${whatMachinePicked}`);
         return whatMachinePicked;
     }
-    start() {
+    result() {
         const whatMachinePicked = this.autoSelect();
         const winner = this.whoWon(whatMachinePicked);
-        console.log(winner);
+        console.log("Result:", winner);
     }
     whoWon(machineChoose) {
         // Todo: validation other options

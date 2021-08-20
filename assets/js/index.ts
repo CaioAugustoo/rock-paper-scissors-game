@@ -22,7 +22,7 @@ class Game {
 
     console.log(`You picked ${this._selected}`);
 
-    this.start();
+    this.result();
   }
 
   private autoSelect() {
@@ -36,11 +36,11 @@ class Game {
     return whatMachinePicked;
   }
 
-  private start(): void {
+  private result(): void {
     const whatMachinePicked = this.autoSelect();
     const winner = this.whoWon(whatMachinePicked);
 
-    console.log(winner);
+    console.log("Result:", winner);
   }
 
   private whoWon(machineChoose: string) {
