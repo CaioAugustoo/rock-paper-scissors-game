@@ -43,7 +43,7 @@ export class Game {
     return whatMachinePicked;
   }
 
-  showResult(winner: string): void {
+  private showResult(winner: string): void {
     const result = this._resultSelector.querySelector(
       ".restart h1"
     ) as HTMLHeadingElement;
