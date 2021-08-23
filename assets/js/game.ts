@@ -102,7 +102,7 @@ export class Game {
     }
   }
 
-  restart(): void {
+  private restart(): void {
     this._selected = "";
     console.clear();
 
@@ -110,12 +110,12 @@ export class Game {
     this._controlsSelector.style.display = "flex";
   }
 
-  bindEvents(): void {
+  private bindEvents(): void {
     this.select = this.select.bind(this);
     this.restart = this.restart.bind(this);
   }
 
-  events(): void {
+  private events(): void {
     const restartButton = this._resultSelector.querySelector(".restart button");
     const controls = this._controlsSelector.querySelectorAll("div");
 
