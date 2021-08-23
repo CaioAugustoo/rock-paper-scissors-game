@@ -7,7 +7,7 @@ export class RulesModal {
         this.events();
     }
     open() {
-        this._wrapper.classList.toggle("active");
+        this._wrapper.classList.add("active");
     }
     close() {
         this._wrapper.classList.remove("active");

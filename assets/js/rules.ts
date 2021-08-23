@@ -15,7 +15,7 @@ export class RulesModal {
   }
 
   private open() {
-    this._wrapper.classList.toggle("active");
+    this._wrapper.classList.add("active");
   }
 
   private close() {
