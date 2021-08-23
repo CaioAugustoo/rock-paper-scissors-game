@@ -22,12 +22,12 @@ export class RulesModal {
     this._wrapper.classList.remove("active");
   }
 
-  bindEvents() {
+  private bindEvents() {
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
   }
 
-  events() {
+  private events() {
     this._openButton.addEventListener("click", this.open);
     this._closeButton.addEventListener("click", this.close);
   }
